@@ -28,6 +28,10 @@ public class Evento {
     @Column(name = "max_partecipanti")
     private int maxPartecipanti;
 
+    @OneToOne(mappedBy = "evento")
+    private Location location;
+
+
     //Costruttori
 
     public Evento() {
@@ -86,5 +90,22 @@ public class Evento {
 
     public void setMaxPartecipanti(int maxPartecipanti) {
         this.maxPartecipanti = maxPartecipanti;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
+                ", dataEvento=" + dataEvento +
+                ", descrizione='" + descrizione + '\'' +
+                ", tipoEvento=" + tipoEvento +
+                ", maxPartecipanti=" + maxPartecipanti +
+                ", location=" + location +
+                '}';
     }
 }
